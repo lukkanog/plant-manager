@@ -44,7 +44,8 @@ export function PlantSave() {
       return Alert.alert("Escolha uma hora no futuro! ⏰");
     }
 
-    if (dateTime) setSelectedDateTime(dateTime);
+    if (dateTime) 
+      setSelectedDateTime(dateTime);
   }
 
   function handleOpenDatetimePickerForAndroid() {
@@ -71,7 +72,10 @@ export function PlantSave() {
   }
 
   return (
-    <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={styles.container}>
+    <ScrollView 
+      showsVerticalScrollIndicator={true} 
+      contentContainerStyle={styles.container}
+    >
       <View style={styles.container}>
         <View style={styles.plantInfo}>
           <SvgFromUri uri={plant.photo} height={150} width={150} />
@@ -127,7 +131,6 @@ const styles = StyleSheet.create({
     flex: 1,
     paddingHorizontal: 30,
     paddingVertical: 50,
-    paddingBottom: 80,
     alignItems: "center",
     justifyContent: "center",
     backgroundColor: colors.shape,
@@ -135,7 +138,7 @@ const styles = StyleSheet.create({
   controller: {
     backgroundColor: colors.white,
     paddingHorizontal: 20,
-    paddingTop: 5,
+    paddingTop: 20,
     paddingBottom: getBottomSpace() || 20,
   },
   plantName: {

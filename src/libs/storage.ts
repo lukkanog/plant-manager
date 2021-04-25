@@ -34,7 +34,7 @@ export async function savePlant(plant: PlantProps): Promise<void> {
     if (repeat_every === 'week') {
       const interval = Math.trunc(7 / times);
       nextTime.setDate(now.getDate() + interval)
-    } 
+    }
     else {
       nextTime.setDate(nextTime.getDate() + 1)
     }
@@ -69,7 +69,7 @@ export async function savePlant(plant: PlantProps): Promise<void> {
       }
     }
 
-    await AsyncStorage.setItem('@plantmanager:plants', 
+    await AsyncStorage.setItem('@plantmanager:plants',
       JSON.stringify({
         ...newPlant,
         ...oldPlants
@@ -91,12 +91,12 @@ export async function loadPlant(): Promise<PlantProps[]> {
         hour: format(new Date(plants[plant].data.dateTimeNotification), 'HH:mm')
       }
     })
-    .sort((a, b) => 
-      Math.floor(
-        new Date(a.dateTimeNotification).getTime() / 1000 -
-        Math.floor(new Date(b.dateTimeNotification).getTime() / 1000)
-      )
-    );
+      .sort((a, b) =>
+        Math.floor(
+          new Date(a.dateTimeNotification).getTime() / 1000 -
+          Math.floor(new Date(b.dateTimeNotification).getTime() / 1000)
+        )
+      );
 
     return plantsSorted;
   } catch (error) {

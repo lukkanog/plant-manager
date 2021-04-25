@@ -50,7 +50,7 @@ export function PlantSelect() {
     }
 
     async function fetchPlants() {
-        const { data } = await api.get(`plants?_sort=name&_order=asc&_page=${page}&_limit=8`);
+        const { data } = await api.get(`plants?_sort=name&_order=asc&_page=${page}&_limit=10`);
         setPlants(data);
         setFilteredPlants(data);
         setLoading(false);

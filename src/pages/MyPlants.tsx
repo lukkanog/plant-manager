@@ -19,11 +19,11 @@ export function MyPlants() {
   function handleRemove(plant: PlantProps) {
     Alert.alert("Remover", `Deseja remover a ${plant.name}?`, [
       {
-        text: "Não 🙏🏻",
+        text: "Não ",
         style: "cancel",
       },
       {
-        text: "Sim 😥",
+        text: "Sim",
         onPress: async () => {
           try {
             await removePlant(plant.id);
@@ -59,7 +59,8 @@ export function MyPlants() {
     loadStorageData();
   }, []);
 
-  if (loading) return <Load />;
+  if (loading)
+    return <Load />
 
   return (
     <View style={styles.container}>
