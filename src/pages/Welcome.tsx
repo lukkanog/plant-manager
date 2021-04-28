@@ -6,7 +6,6 @@ import {
     Image,
     StyleSheet,
     Dimensions,
-    Alert
 } from "react-native";
 import { Feather } from "@expo/vector-icons";
 

@@ -8,20 +8,27 @@ import {
 } from "react-native";
 import { getStatusBarHeight } from "react-native-iphone-x-helper";
 
-import ProfilePicture from "../assets/default-profile-picture.jpg";
+import { defaultPath } from "../utils/ImageUtils";
 import colors from "../styles/colors";
 import fonts from "../styles/fonts";
 
 export function Header(){
     const [ name, setName ] = useState<string>();
+    const [ image, setImage ] = useState<string>();
 
     async function getName(){
         const user = await AsyncStorage.getItem("@plantmanager:user");
         setName(user || "Usuário(a)");
     }
 
+    async function getImage(){
+        const picture = await AsyncStorage.getItem("@plantmanager:imageSrc");
+        setImage(picture || defaultPath);
+    }
+
     useEffect(() => {
         getName();
+        getImage();
     }, [])
 
     return(
@@ -32,7 +39,7 @@ export function Header(){
             </View>
 
             <Image
-                source={ProfilePicture}
+                source={{uri: image}}
                 style={styles.image}
             />
 
@@ -60,8 +67,8 @@ const styles = StyleSheet.create({
         color: colors.heading,
     },
     image: {
-        width: 56,
-        height: 56,
+        width: 60,
+        height: 60,
         borderRadius: 28,
     },
     
