@@ -138,7 +138,6 @@ const styles = StyleSheet.create({
   controller: {
     backgroundColor: colors.white,
     paddingHorizontal: 20,
-    paddingTop: 20,
     paddingBottom: getBottomSpace() || 20,
   },
   plantName: {
@@ -162,7 +161,7 @@ const styles = StyleSheet.create({
     padding: 20,
     borderRadius: 20,
     position: "relative",
-    bottom: 60,
+    bottom: 35,
   },
   tipImage: {
     width: 56,
@@ -186,7 +185,7 @@ const styles = StyleSheet.create({
   dateTimePickerButton: {
     width: "100%",
     alignItems: "center",
-    paddingVertical: 40,
+    paddingBottom: 25,
   },
   dateTimePickerText: {
     color: colors.heading,
